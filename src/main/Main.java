@@ -1,16 +1,20 @@
 package main;
 
+import static gameplay.Flecha.fluxoFlecha;
+import static gameplay.Movimento.movimentaJogador;
+
 import ambiente.Construtor;
 import gameplay.InputJogador;
 import gameplay.Jogador;
-import gameplay.Movimento;
-import model.Sala;
 
 public class Main {
 
 	private static boolean play = true;
 	
 	public static void main(String[] args) {
+		
+		System.out.println("Atenção bravo guerreiro! Você encontrou uma caverna, e a explorou em busca de tesouro. Encontro o ouro e você receberá fama e glória eterna!"
+				+ "\nMas tome cuidado, uma criatura terrível vive nesta caverna e você só possui uma flecha para mata-la.");
 		
 		Construtor construtor = new Construtor();
 		construtor.inicia(8, 8);
@@ -23,17 +27,15 @@ public class Main {
 			System.out.println("==================");
 			System.out.println("8 - Cima");
 			System.out.println("6 - Direita");
+			System.out.println("5 - Atirar Flecha");
 			System.out.println("4 - Esquerda");
 			System.out.println("2 - Baixo");
 			
 			int movimentoNum = InputJogador.lerInt();
-			String movimento = "movimento" + movimentoNum;
-			
-			Movimento movimentoClass = getEnumDeMovimento(movimento);
-			Sala conclusaoMovimento = jogador.mover(movimentoClass);
-			
-			if (conclusaoMovimento == null) {
-				System.out.println("Você bateu em uma parede, tente ir em outra direção.");
+			if (movimentoNum == 5) {
+				fluxoFlecha(jogador);
+			} else {
+				movimentaJogador(jogador, movimentoNum);
 			}
 			
 		}
@@ -41,19 +43,6 @@ public class Main {
 		InputJogador.close();
 		System.out.println("Fim de jogo!");
 		
-	}
-
-	private static Movimento getEnumDeMovimento(String movimento) {
-		
-		Movimento result = Movimento.movimentoInvalido;
-		try {
-			result = Movimento.valueOf(movimento);
-		} catch (IllegalArgumentException ex) {
-			System.out.println("Movimento inválido, digite um número que corresponda a um dos movimentos listados.");
-		}
-		
-		return result;
-			
 	}
 
 	public static void setPlay(boolean play) {

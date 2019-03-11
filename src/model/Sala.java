@@ -24,5 +24,11 @@ public class Sala {
 	public List<Interagivel> getElementos() {
 		return elementos;
 	}
+
+	public void removeWumpus() {
+		
+		this.elementos.removeIf( element -> Wumpus.class.isInstance(element) );
+		
+	}
 	
 }

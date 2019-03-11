@@ -1,27 +1,31 @@
 package gameplay;
 
-public enum Movimento {
+import model.Sala;
 
-	movimento8(0, 1),
-	movimento4(-1, 0),
-	movimento6(1, 0),
-	movimento2(0, -1),
-	movimentoInvalido(0, 0);
+public class Movimento {
 	
-	private int xMovimento;
-	private int yMovimento;
+	public static void movimentaJogador(Jogador jogador, int movimentoNum) {
+		
+		DirecaoMovimento movimentoClass = getEnumDeMovimento("movimento" + movimentoNum);
+		Sala conclusaoMovimento = jogador.mover(movimentoClass);
+		
+		if (conclusaoMovimento == null) {
+			System.out.println("Você bateu em uma parede, tente ir em outra direção.");
+		}
+
+	}
 	
-	Movimento (int x, int y) {
-		this.xMovimento = x;
-		this.yMovimento = y;
+	private static DirecaoMovimento getEnumDeMovimento(String movimento) {
+		
+		DirecaoMovimento result = DirecaoMovimento.movimentoInvalido;
+		try {
+			result = DirecaoMovimento.valueOf(movimento);
+		} catch (IllegalArgumentException ex) {
+			System.out.println("Movimento inválido, digite um número que corresponda a um dos movimentos listados.");
+		}
+		
+		return result;
+			
 	}
 
-	public int getxMovimento() {
-		return xMovimento;
-	}
-	
-	public int getyMovimento() {
-		return yMovimento;
-	}
-	
 }
