@@ -1,12 +1,15 @@
 package model;
 
+import main.Main;
+
 public class Wumpus implements Interagivel {
 
 	@Override
-	public boolean executaChegada() {
+	public int executaChegada() {
 		
 		System.out.println("Cuidado o Wumpus está nessa sala... Sinto muito!");
-		return false;
+		Main.setPlay(false);
+		return -1000;
 		
 	}
 

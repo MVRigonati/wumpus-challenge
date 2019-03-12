@@ -1,12 +1,15 @@
 package model;
 
+import main.Main;
+
 public class Buraco implements Interagivel {
 
 	@Override
-	public boolean executaChegada() {
+	public int executaChegada() {
 		
 		System.out.println("Você caiu em um buraco!");
-		return false;
+		Main.setPlay(false);
+		return -1000;
 		
 	}
 

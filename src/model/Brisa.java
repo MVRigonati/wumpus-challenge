@@ -3,10 +3,10 @@ package model;
 public class Brisa implements Interagivel {
 
 	@Override
-	public boolean executaChegada() {
+	public int executaChegada() {
 		
 		System.out.println("Você está em uma sala com BRISA");
-		return true;
+		return 0;
 		
 	}
 

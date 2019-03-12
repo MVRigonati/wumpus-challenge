@@ -1,6 +1,5 @@
 package gameplay;
 
-import main.Main;
 import model.Interagivel;
 import model.Sala;
 import model.Tabuleiro;
@@ -9,6 +8,7 @@ import model.Wumpus;
 public class Jogador {
 
 	private Tabuleiro tabuleiro;
+	private int pontos;
 	private int posicaoX;
 	private int posicaoY;
 	private boolean possuiFlecha;
@@ -33,6 +33,7 @@ public class Jogador {
 		Sala salaDestino = null;
 		if (this.tabuleiro.podeMoverPara(this.posicaoY, this.posicaoX)) {
 			
+			this.pontos -= 1;
 			salaDestino = this.tabuleiro.getSalaAtual();
 			executaSalaAtualElementos(salaDestino);
 			
@@ -47,11 +48,7 @@ public class Jogador {
 
 	private void executaSalaAtualElementos(Sala salaAtual) {
 		for (Interagivel elemento : salaAtual.getElementos()) {
-			
-			if (!elemento.executaChegada()) {
-				Main.setPlay(false);
-			}
-			
+			this.pontos += elemento.executaChegada();
 		}
 	}
 	
@@ -59,6 +56,7 @@ public class Jogador {
 		
 		if (flechaDirecao != DirecaoFlecha.direcaoInvalida) {
 			
+			this.pontos -= 10;
 			int posicaoFlechaY = this.posicaoY + flechaDirecao.getYMovimento();
 			int posicaoFlechaX = this.posicaoX + flechaDirecao.getXMovimento();
 			
@@ -96,6 +94,10 @@ public class Jogador {
 	
 	public boolean getPossuiFlecha() {
 		return this.possuiFlecha;
+	}
+	
+	public int getPontos() {
+		return pontos;
 	}
 	
 }

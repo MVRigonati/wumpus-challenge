@@ -3,10 +3,10 @@ package model;
 public class Fedor implements Interagivel {
 
 	@Override
-	public boolean executaChegada() {
+	public int executaChegada() {
 		
 		System.out.println("Você está em uma sala FEDORENTA!");
-		return true;
+		return 0;
 		
 	}
 

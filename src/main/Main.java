@@ -41,7 +41,7 @@ public class Main {
 		}
 		
 		InputJogador.close();
-		System.out.println("Fim de jogo!");
+		System.out.println("Fim de jogo! Sua pontuação foi: " + jogador.getPontos());
 		
 	}
 
