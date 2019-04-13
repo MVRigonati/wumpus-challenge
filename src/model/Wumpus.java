@@ -7,7 +7,7 @@ public class Wumpus implements Interagivel {
 	@Override
 	public int executaChegada() {
 		
-		System.out.println("Cuidado o Wumpus está nessa sala... Sinto muito!");
+		System.out.println("Wumpus si here... oh my god, I'm sorry!");
 		Main.setPlay(false);
 		return -1000;
 		

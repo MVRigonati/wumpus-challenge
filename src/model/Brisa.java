@@ -5,7 +5,7 @@ public class Brisa implements Interagivel {
 	@Override
 	public int executaChegada() {
 		
-		System.out.println("Você está em uma sala com BRISA");
+		System.out.println("You are in a WINDY room!");
 		return 0;
 		
 	}

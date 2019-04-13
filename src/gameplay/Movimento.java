@@ -10,7 +10,7 @@ public class Movimento {
 		Sala conclusaoMovimento = jogador.mover(movimentoClass);
 		
 		if (conclusaoMovimento == null) {
-			System.out.println("Você bateu em uma parede, tente ir em outra direção.");
+			System.out.println("You hit a wall, try going in another direction.");
 		}
 
 	}
@@ -21,7 +21,7 @@ public class Movimento {
 		try {
 			result = DirecaoMovimento.valueOf(movimento);
 		} catch (IllegalArgumentException ex) {
-			System.out.println("Movimento inválido, digite um número que corresponda a um dos movimentos listados.");
+			System.out.println("Invalid movement, insert a number that corresponds to one of the listed movements.");
 		}
 		
 		return result;

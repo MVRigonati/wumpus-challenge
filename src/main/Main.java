@@ -13,23 +13,27 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		System.out.println("Atenção bravo guerreiro! Você encontrou uma caverna, e a explorou em busca de tesouro. Encontro o ouro e você receberá fama e glória eterna!"
-				+ "\nMas tome cuidado, uma criatura terrível vive nesta caverna e você só possui uma flecha para mata-la.");
+		System.out.println("Attention brave warrior! You found a dungeon and went in it. Find the gold and you will receive eternal fame and glory!"
+				+ "\nHere are the rules:\n"
+				+ "If you find a WINDY room, you are close to a HOLE!\n"
+				+ "if you find a SMELLY room, you are close the the monster WUMPUS!\n"
+				+ "You have just one arrow, so use it wisely.\n"
+				+ "Good luck, brave warrior!");
 		
 		Construtor construtor = new Construtor();
 		construtor.inicia(8, 8);
 		
-		System.out.println("Sua dangeon está pronta! Você está na estrada, para qual direção deseja se mover?");
+		System.out.println("You are in the dungeon entrance, choose the direction you want to move.");
 		Jogador jogador = new Jogador(construtor.build());
 		
 		while (play) {
 			
 			System.out.println("==================");
-			System.out.println("8 - Cima");
-			System.out.println("6 - Direita");
-			System.out.println("5 - Atirar Flecha");
-			System.out.println("4 - Esquerda");
-			System.out.println("2 - Baixo");
+			System.out.println("8 - Up");
+			System.out.println("6 - Right");
+			System.out.println("5 - Fire Arrow");
+			System.out.println("4 - Left");
+			System.out.println("2 - Down");
 			
 			int movimentoNum = InputJogador.lerInt();
 			if (movimentoNum == 5) {
@@ -41,7 +45,7 @@ public class Main {
 		}
 		
 		InputJogador.close();
-		System.out.println("Fim de jogo! Sua pontuação foi: " + jogador.getPontos());
+		System.out.println("End game! Your score was: " + jogador.getPontos());
 		
 	}
 
